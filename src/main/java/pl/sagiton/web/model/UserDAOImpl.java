@@ -19,6 +19,7 @@ public class UserDAOImpl implements UserDAO {
     private SessionFactory sessionFactory;
 
 
+
     public List listUser() {
         return sessionFactory.getCurrentSession().createQuery("FROM MyUser").list();
     }

@@ -14,7 +14,6 @@ public class MyUser {
 
     @Id
     @Column(name="id")
-    @GeneratedValue
     @Setter @Getter private Integer id;
 
     @Column(name="username")
