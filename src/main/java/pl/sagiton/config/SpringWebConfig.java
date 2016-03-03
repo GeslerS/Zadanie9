@@ -29,7 +29,7 @@ import java.util.Properties;
  */
 @EnableWebMvc
 @Configuration
-@ComponentScan({"pl.sagiton.web.*"})
+@ComponentScan({"pl.sagiton.web"})
 @EnableTransactionManagement
 
 public class SpringWebConfig extends WebMvcConfigurerAdapter{
@@ -57,9 +57,9 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter{
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/UsersDB");
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/UserDB");
         dataSource.setUsername("root");
-        dataSource.setPassword("haslo12345");
+        dataSource.setPassword("bb263maxie");
         return dataSource;
     }
 
@@ -102,9 +102,8 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter{
     Properties hibernateProperties() {
         return new Properties() {
             {
-                setProperty("hibernate.hbm2ddl.auto","create-drop");
                 setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5Dialect");
-                setProperty("hibernate.globally_quoted_identifiers", "false");
+                setProperty("hibernate.globally_quoted_identifiers", "true");
 
             }
         };

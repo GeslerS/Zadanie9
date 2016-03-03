@@ -16,7 +16,7 @@ import pl.sagiton.web.service.MyUserDetailsService;
  */
 @Configuration
 @EnableWebSecurity
-@ComponentScan({"pl.sagiton.web.*"})
+@ComponentScan({"pl.sagiton.web"})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired

@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     UserDAO userDAO;
 
     @Transactional
-    public List<MyUser> listUser() {
-        return userDAO.listUser();
+    public List<MyUser> listUser(String username) {
+        return userDAO.listUser(username);
     }
 }

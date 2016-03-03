@@ -9,17 +9,18 @@ import javax.persistence.*;
  * Created by szymon on 03.03.16.
  */
 @Entity
-@Table(name = "USERS")
+@Table(name="USERS")
 public class MyUser {
 
     @Id
-    @Column(name="id")
+    @Column(name = "id")
+    @GeneratedValue
     @Setter @Getter private Integer id;
 
-    @Column(name="username")
+    @Column(name = "username")
     @Setter @Getter private String username;
 
-    @Column(name="password")
+    @Column(name = "password")
     @Setter @Getter private String password;
 
 

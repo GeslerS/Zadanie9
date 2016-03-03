@@ -7,6 +7,6 @@ import java.util.List;
  */
 public interface UserDAO {
 
-    public List listUser();
+    public List listUser(String username);
 
 }

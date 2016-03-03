@@ -20,8 +20,9 @@ public class UserDAOImpl implements UserDAO {
 
 
 
-    public List listUser() {
-        return sessionFactory.getCurrentSession().createQuery("FROM MyUser").list();
+    public List listUser(String username) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("FROM MyUser E WHERE E.username = '" +username + "'").list();
     }
 
 }
