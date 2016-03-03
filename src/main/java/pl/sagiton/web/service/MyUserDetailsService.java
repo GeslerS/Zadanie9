@@ -24,9 +24,8 @@ public class MyUserDetailsService implements UserDetailsService {
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
+        if(userService.listUser().isEmpty()) throw new UsernameNotFoundException("MyUser doesn't exist (" + username +")");
         MyUser user = userService.listUser().get(0);
-
-        if(user == null) throw new UsernameNotFoundException("MyUser doesn't exist (" + username +")");
 
         List authList = new ArrayList();
         authList.add(new SimpleGrantedAuthority("ROLE_USER"));

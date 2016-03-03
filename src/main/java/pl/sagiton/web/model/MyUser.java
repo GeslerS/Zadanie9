@@ -13,14 +13,14 @@ import javax.persistence.*;
 public class MyUser {
 
     @Id
-    @Column(name="ID")
+    @Column(name="id")
     @GeneratedValue
     @Setter @Getter private Integer id;
 
-    @Column(name="USERNAME")
+    @Column(name="username")
     @Setter @Getter private String username;
 
-    @Column(name="PASSWORD")
+    @Column(name="password")
     @Setter @Getter private String password;
 
 
