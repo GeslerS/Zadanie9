@@ -31,7 +31,6 @@ import java.util.Properties;
 @Configuration
 @ComponentScan({"pl.sagiton.web"})
 @EnableTransactionManagement
-
 public class SpringWebConfig extends WebMvcConfigurerAdapter{
 
     @Override
@@ -53,61 +52,6 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter{
         return viewResolver;
     }
 
-    @Bean
-    public DataSource dataSource(){
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/UserDB");
-        dataSource.setUsername("root");
-        dataSource.setPassword("bb263maxie");
-        return dataSource;
-    }
-
-    @Bean
-    public UserDAOImpl userDAOImpl(){
-        UserDAOImpl userDAOImpl = new UserDAOImpl();
-        return userDAOImpl;
-    }
-
-
-
-    @Bean
-    public UserService userService(){
-            return new UserServiceImpl();
-        }
-
-    @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "pl.sagiton.web" });
-        sessionFactory.setHibernateProperties(hibernateProperties());
-
-        return sessionFactory;
-    }
-
-    @Bean
-    @Autowired
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-        HibernateTransactionManager txManager = new HibernateTransactionManager();
-        txManager.setSessionFactory(sessionFactory);
-
-        return txManager;
-    }
-    @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-        return new PersistenceExceptionTranslationPostProcessor();
-    }
-
-    Properties hibernateProperties() {
-        return new Properties() {
-            {
-                setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5Dialect");
-                setProperty("hibernate.globally_quoted_identifiers", "true");
-
-            }
-        };
-    }
 }
 
 

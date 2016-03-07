@@ -2,6 +2,7 @@ package pl.sagiton.servlet;
 
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import pl.sagiton.config.HibernateConfig;
 import pl.sagiton.config.SecurityConfig;
 import pl.sagiton.config.SpringWebConfig;
 
@@ -29,7 +30,7 @@ public class MyWebInitializer extends
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] { SpringWebConfig.class, SecurityConfig.class};
+        return new Class[] { SpringWebConfig.class, SecurityConfig.class, HibernateConfig.class};
     }
 
     @Override
