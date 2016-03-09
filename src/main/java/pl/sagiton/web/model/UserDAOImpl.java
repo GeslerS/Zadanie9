@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
     private SessionFactory sessionFactory;
 
 
-
+    @Transactional
     public MyUser listUser(String username) {
 
        List list = sessionFactory.getCurrentSession()

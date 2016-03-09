@@ -17,7 +17,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserDAO userDAO;
 
-    @Transactional
     public MyUser listUser(String username) {
         return userDAO.listUser(username);
     }
